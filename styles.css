@@ -1,0 +1,110 @@
+body {
+    background-color: steelblue;
+    padding: 300px 500px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-radius: 10px;
+    background-color:lightsteelblue;
+    align-items: center;    
+}
+
+.buttonContainer {
+margin-top: 10px;
+border: solid;
+display: flex;
+gap: 50px;
+}
+
+.gameButton {
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.selectionContainer {
+    display: flex;
+    border: solid;
+    margin: 10px;
+    width: 500px;
+    height: 100px;
+}
+
+.roundContainer {
+display: flex;
+border: solid;
+align-items: center;
+justify-content: space-evenly;
+}
+
+.visualRoundContainer {
+    display: flex;
+    width: 500px;
+    gap: 25px;
+}
+
+.visualRoundItem {
+    border: solid;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameCompleteHuman {
+    background-color: limegreen;
+}
+
+.gameCompleteHuman::after {
+    content: 'H';
+    color: white;
+}
+
+.gameCompleteComputer {
+    background-color: red;
+}
+
+.gameCompleteComputer::after {
+    content: 'C';
+    color: white;
+}
+
+.gameCompleteTie {
+    background-color:goldenrod;
+}
+
+.gameCompleteTie::after {
+    content: 'T';
+    color: white;
+}
+
+.scoreWrapper {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+}
+
+.counter-text {
+    font-size: 1.5em;
+}
+
+.hide-element {
+    display: none;
+}
+
+.endOfRound {
+    display: flex;
+    background-color: gray;
+}
