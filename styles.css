@@ -1,56 +1,221 @@
+:root {
+    --borderWidth: 7px;
+    --height: 24px;
+    --width: 12px;
+    --borderColor: #78b13f;
+  }
+
+* {
+    font-family: Mulish;
+}
+
 body {
-    background-color: steelblue;
+    background-color: #24315E;
     padding: 300px 500px;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
+h1 {
+    font-size: 95px;
+    font-weight: 900;
+    color: whitesmoke;
+    margin: 0;
+}
+
+h2 {
+    color: whitesmoke;
+
+}
+
 h3 {
     font-size: 2em;
+    color: whitesmoke;
+    margin: 0;
+
 }
 
 .container {
+    position: relative;
+    margin: 15px;
     display: flex;
     flex-direction: column;
-    border: solid;
-    border-radius: 10px;
-    background-color:lightsteelblue;
-    align-items: center;    
+    border: none;
+    border-radius: 3px;
+    background-color: #F76D6D;
+    align-items: center;
+    box-shadow: 2px 2px 20px black;
+    padding: 50px 50px 50px 50px;
 }
 
 .buttonContainer {
-margin-top: 10px;
-border: solid;
 display: flex;
 gap: 50px;
 }
 
+@keyframes overlayFade {
+    from {background-color: rgb(247, 109, 109, 0)}
+    to {background-color: rgb(247, 109, 109, 1)}
+}
+
+@keyframes buttonFade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.overlay{
+    animation-name: overlayFade;
+    animation-duration: 2.5s;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0px;
+    right: 0px;
+    background-color: rgb(247, 109, 109, 1); /* Black background with opacity */
+    z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.gameRoundText {
+    font-size: 90px;
+    font-weight: 500px;
+    color: whitesmoke;
+    animation-name: buttonFade;
+    animation-duration: 3.5s;
+    /* text-shadow: 1px 1px 20px black; */
+}
+
+.newGameButton {
+    animation-name: buttonFade;
+    animation-duration: 3.5s;
+    height: 120px;
+    width: 250px;
+    border-radius: 3px;
+    font-size: 40px;
+    font-weight: 200;
+    color: whitesmoke;
+    border: solid;
+    border-color: whitesmoke;
+    border-width: .03em;
+    background-color: transparent;
+}
+
+.matchContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .gameButton {
-    height: 50px;
-    width: 150px;
-    border-radius: 10px;
+    height: 120px;
+    width: 250px;
+    border-radius: 3px;
+    font-size: 40px;
+    font-weight: 200;
+    color: whitesmoke;
+    border: solid;
+    border-color: whitesmoke;
+    border-width: .03em;
+    background-color: transparent;
+}
+
+.gameButton:hover {
+    background-color: #24315E;
+    cursor: pointer;
+}
+
+.newGameButton:hover {
+    background-color: #24315E;
+    cursor: pointer;
+}
+
+.disabledButton {
+    pointer-events: none;
+}
+
+.buttonPressed {
+    background-color: #24315E;
+    width: 270px;
+    height: 140px;
+}
+
+.computerSelectionBox {
+    background-color: #A8D1E7;
+    width: 270px;
+    height: 140px;
+    border-radius: 3px;
+    font-size: 40px;
+    font-weight: 200;
+    color: #24315E;
+    border: solid;
+    border-color: whitesmoke;
+    border-width: .03em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
 }
 
 .selectionContainer {
     display: flex;
-    border: solid;
+    /* border: solid; */
     margin: 10px;
     width: 500px;
     height: 100px;
 }
+
+.check {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: var(--height);
+    width: var(--width);
+    border-bottom: var(--borderWidth) solid var(--borderColor);
+    border-right: var(--borderWidth) solid var(--borderColor);
+    margin-left: 20px;
+}
+
+.x {
+    width:32px; /* the size */
+    aspect-ratio:1/1;
+    border:none; /* the outer space */
+    background:
+      conic-gradient(from 90deg at var(--borderWidth) var(--borderWidth), transparent 90deg,#fff 0) 
+      calc(100% + var(--borderWidth)/2) calc(100% + var(--borderWidth)/2)/
+      calc(50%  + var(--borderWidth))   calc(50%  + var(--borderWidth));
+    display:inline-block;
+    transform: rotate(45deg);
+    margin-left: 20px;
+
+}
+
 
 .roundContainer {
 display: flex;
 border: solid;
 align-items: center;
 justify-content: space-evenly;
+position: relative;
+border: none;
+border-radius: 3px;
+background-color: #F76D6D;
+align-items: center;
+box-shadow: 2px 2px 20px black;
+margin: 15px 15px 30px;
+padding: 20px;
 }
 
 .visualRoundContainer {
     display: flex;
     width: 500px;
     gap: 25px;
+    align-items: center;
 }
 
 .visualRoundItem {
@@ -61,28 +226,30 @@ justify-content: space-evenly;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-color: whitesmoke;
+    color: whitesmoke;
 }
 
 .gameCompleteHuman {
-    background-color: limegreen;
+    background-color: #374785;
 }
 
 .gameCompleteHuman::after {
-    content: 'H';
+    content: 'W';
     color: white;
 }
 
 .gameCompleteComputer {
-    background-color: red;
+    background-color: #A8D1E7;
 }
 
 .gameCompleteComputer::after {
-    content: 'C';
+    content: 'L';
     color: white;
 }
 
 .gameCompleteTie {
-    background-color:goldenrod;
+    background-color:#f1dc73;
 }
 
 .gameCompleteTie::after {
@@ -93,11 +260,14 @@ justify-content: space-evenly;
 .scoreWrapper {
     display: flex;
     flex-direction: column;
-    border: solid;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .counter-text {
     font-size: 1.5em;
+    color: whitesmoke;
 }
 
 .hide-element {
@@ -106,5 +276,22 @@ justify-content: space-evenly;
 
 .endOfRound {
     display: flex;
-    background-color: gray;
+    background-color: #F76D6D;
+}
+
+.resetButton {
+    height: 90px;
+    width: 230px;
+    border-radius: 3px;
+    font-size: 40px;
+    font-weight: 200;
+    color: whitesmoke;
+    border: solid;
+    border-color: whitesmoke;
+    border-width: .03em;
+    background-color: transparent;
+}
+.resetButton:hover {
+    background-color: #24315E;
+    cursor: pointer;
 }
